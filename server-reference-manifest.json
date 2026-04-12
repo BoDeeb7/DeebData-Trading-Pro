@@ -1,0 +1,21 @@
+{
+  "node": {
+    "40e7c7c895f419ccaf4c25a81b58a9dada9bf04410": {
+      "workers": {
+        "app/dashboard/page": {
+          "moduleId": "[project]/.next-internal/server/app/dashboard/page/actions.js { ACTIONS_MODULE0 => \"[project]/src/ai/flows/ai-signal-generation.ts [app-rsc] (ecmascript)\" } [app-rsc] (server actions loader, ecmascript)",
+          "async": false,
+          "exportedName": "generateAISignal",
+          "filename": "src/ai/flows/ai-signal-generation.ts"
+        }
+      },
+      "layer": {
+        "app/dashboard/page": "action-browser"
+      },
+      "filename": "src/ai/flows/ai-signal-generation.ts",
+      "exportedName": "generateAISignal"
+    }
+  },
+  "edge": {},
+  "encryptionKey": "R45TuGG2vUv6W3uaLX3t66YJ8IbN4PclxKrlBqgyI78="
+}
