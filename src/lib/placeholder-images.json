@@ -1,0 +1,22 @@
+{
+  "placeholderImages": [
+    {
+      "id": "hero-trading",
+      "description": "Professional trading desk with multiple monitors",
+      "imageUrl": "https://picsum.photos/seed/trading1/1200/600",
+      "imageHint": "trading dashboard"
+    },
+    {
+      "id": "feature-ai",
+      "description": "AI data visualization",
+      "imageUrl": "https://picsum.photos/seed/ai1/400/300",
+      "imageHint": "artificial intelligence"
+    },
+    {
+      "id": "feature-security",
+      "description": "Secure encrypted connection",
+      "imageUrl": "https://picsum.photos/seed/secure1/400/300",
+      "imageHint": "cyber security"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+
+{
+  "entities": {
+    "UserProfile": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user's profile information.",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string", "format": "email" },
+        "name": { "type": "string" },
+        "isSubscribed": { "type": "boolean" },
+        "freeSignalsUsed": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "email", "name", "isSubscribed", "freeSignalsUsed", "createdAt"]
+    },
+    "TradingSignal": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "TradingSignal",
+      "type": "object",
+      "description": "Represents an AI-generated trading signal.",
+      "properties": {
+        "id": { "type": "string" },
+        "asset": { "type": "string" },
+        "direction": { "type": "string" },
+        "entryPrice": { "type": "number" },
+        "takeProfitPrice": { "type": "number" },
+        "stopLossPrice": { "type": "number" },
+        "confidenceScore": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "ManualSignal": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "title": "ManualSignal",
+      "type": "object",
+      "description": "Professional analysis posted manually by Hassan Deeb.",
+      "properties": {
+        "id": { "type": "string" },
+        "asset": { "type": "string" },
+        "direction": { "type": "string" },
+        "entryPrice": { "type": "number" },
+        "takeProfit": { "type": "number" },
+        "stopLoss": { "type": "number" },
+        "reasoning": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["password", "anonymous"]
+  },
+  "firestore": {
+    "structure": [
+      {
+        "path": "/users/{userId}/profile",
+        "definition": {
+          "entityName": "UserProfile",
+          "schema": { "$ref": "#/backend/entities/UserProfile" },
+          "description": "User profiles."
+        }
+      },
+      {
+        "path": "/tradingSignals/{signalId}",
+        "definition": {
+          "entityName": "TradingSignal",
+          "schema": { "$ref": "#/backend/entities/TradingSignal" },
+          "description": "AI-generated signals."
+        }
+      },
+      {
+        "path": "/manualSignals/{signalId}",
+        "definition": {
+          "entityName": "ManualSignal",
+          "schema": { "$ref": "#/backend/entities/ManualSignal" },
+          "description": "Manual analysis posted by Hassan Deeb."
+        }
+      }
+    ]
+  }
+}

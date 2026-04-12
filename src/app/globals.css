@@ -1,0 +1,84 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 7%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 4%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 66%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 15%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 188 86% 43%;
+    --accent-foreground: 222 47% 5%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 15%;
+    --input: 217 32% 15%;
+    --ring: 262 83% 66%;
+    --radius: 1.25rem;
+    --success: 161 84% 39%;
+    --gold: 45 100% 50%;
+    --bg-bottom: 222 47% 2%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scrollbar-gutter: stable;
+    overflow-x: hidden;
+    width: 100%;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary/30;
+    background-image: radial-gradient(circle at top center, hsl(var(--primary) / 0.1), transparent), 
+                      linear-gradient(to bottom, hsl(var(--background)), hsl(var(--bg-bottom)));
+    background-attachment: fixed;
+    width: 100%;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+.glassmorphism {
+  background: hsl(var(--card) / 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid hsl(var(--foreground) / 0.05);
+}
+
+.gpu-stable {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.custom-scrollbar::-webkit-scrollbar { width: 3px; }
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--foreground) / 0.1);
+  border-radius: 10px;
+}
+
+.pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+}
+.animate-pulse-gold { animation: pulse-gold 3s ease-in-out infinite; }
